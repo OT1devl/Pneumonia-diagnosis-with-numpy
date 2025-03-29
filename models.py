@@ -106,30 +106,24 @@ class SimpleCNN:
         # sigmoid or softmax
 
     def forward(self, x):
-        # Primera etapa: Conv1 -> LeakyReLU -> MaxPool1
         self.conv_z0 = self.conv1.forward(x)
         self.conv_a0 = LeakyReLU(self.conv_z0)
         self.pool_conv_a0 = self.maxpool1.forward(self.conv_a0)
 
-        # Segunda etapa: Conv2 -> LeakyReLU -> MaxPool2
         self.conv_z1 = self.conv2.forward(self.pool_conv_a0)
         self.conv_a1 = LeakyReLU(self.conv_z1)
         self.pool_conv_a1 = self.maxpool2.forward(self.conv_a1)
 
-        # Tercera etapa: Conv3 -> LeakyReLU -> MaxPool3
         self.conv_z2 = self.conv3.forward(self.pool_conv_a1)
         self.conv_a2 = LeakyReLU(self.conv_z2)
         self.pool_conv_a2 = self.maxpool3.forward(self.conv_a2)
 
-        # Cuarta etapa: Conv4 -> LeakyReLU -> MaxPool4
         self.conv_z3 = self.conv4.forward(self.pool_conv_a2)
         self.conv_a3 = LeakyReLU(self.conv_z3)
         self.pool_conv_a3 = self.maxpool4.forward(self.conv_a3)
 
-        # Aplanado para conectar a las capas densas
         self.flat = self.pool_conv_a3.reshape(self.pool_conv_a3.shape[0], -1)
 
-        # Capas densas: Dense1 -> LeakyReLU, Dense2 -> LeakyReLU y Dense3 -> (sigmoid o softmax)
         self.z0 = self.dense1.forward(self.flat)
         self.a0 = LeakyReLU(self.z0)
 
@@ -142,13 +136,10 @@ class SimpleCNN:
         return self.a2
 
     def backward(self, y, outp):
-        # Cálculo del gradiente de la pérdida
         dL = self.loss(y, outp, derv=True)
         if self.last_activation == sigmoid:
-            # Suponiendo que la función sigmoid pueda calcular su derivada con la salida
             dL *= sigmoid(outp, derv=True)
         
-        # Propagación hacia atrás por las capas densas
         dL = self.dense3.backward(dL)
         dL = LeakyReLU(self.z1, derv=True) * dL
 
@@ -158,7 +149,6 @@ class SimpleCNN:
         dL = self.dense1.backward(dL)
         dL = dL.reshape(self.pool_conv_a3.shape)
 
-        # Propagación hacia atrás por las capas convolucionales y de maxpooling (en orden inverso)
         dL = self.maxpool4.backward(dL)
         dL = LeakyReLU(self.conv_z3, derv=True) * dL
         dL = self.conv4.backward(dL)
