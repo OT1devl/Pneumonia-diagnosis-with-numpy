@@ -109,6 +109,3 @@ def shuffle_data(x, y=None):
 
 def split_data(data, split=0.2):
     return data[:int(data.shape[0]*split)], data[int(data.shape[0]*split):]
-
-def load_data(path):
-    pass

@@ -16,19 +16,25 @@ def sigmoid(x, derv=False):
 
 def softmax(x):
     x_exp = np.exp(x - np.max(x, axis=1, keepdims=True))
-    return x_exp / np.sum(x_exp, axis=0, keepdims=True)
+    return x_exp / np.sum(x_exp, axis=1, keepdims=True)
 
 # Losses
 
 def BCE(y_true, y_pred, epsilon=1e-8, derv=False):
     if derv: return -y_true / (y_pred + epsilon) + (1 - y_true) / (1 - y_pred + epsilon)
-    return np.sum(-y_true * np.log(y_pred + epsilon) - (1 - y_true) * np.log(1 - y_pred + epsilon))
+    return np.mean(-y_true * np.log(y_pred + epsilon) - (1 - y_true) * np.log(1 - y_pred + epsilon))
 
 def CCE(y_true, y_pred, epsilon=1e-8, derv=False):
     if derv: return y_pred - y_true
-    return -np.sum(y_true * np.log(y_pred + epsilon))
+    return -np.mean(y_true * np.log(y_pred + epsilon))
 
 # Accuracies
+
+def SingleBinaryAccuracy(y_true, y_preds):
+    return np.mean((y_preds > 0.5) == y_true)
+
+def SingleCategoricalAccuracy(y_true, y_preds):
+    return np.mean(np.argmax(y_true, axis=1) == np.argmax(y_preds, axis=1))
 
 def BinaryAccuracy(y, x, model):
     batch_size = 128
@@ -41,7 +47,7 @@ def BinaryAccuracy(y, x, model):
         y_batch = y[batch:batch+batch_size]
         predictions = model.forward(x_batch)
         loss_cum += BCE(y_batch, predictions)
-        acc_cum += np.sum((predictions > 0.5) == y_batch)
+        acc_cum += np.sum((predictions > 0.5)==y_batch)
 
     return acc_cum/total, loss_cum/total
 
