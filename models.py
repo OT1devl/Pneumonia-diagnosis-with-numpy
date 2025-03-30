@@ -1,6 +1,7 @@
 import numpy as np
 from functions import *
 from utils import fast_maxpool, fast_maxpool_backprop, fast_convolution, fast_convolution_backprop
+import time
 
 DTYPE = np.float32
 
@@ -98,7 +99,7 @@ class SimpleCNN:
 
         # Flatten
 
-        self.dense1 = Dense(26912, 64)
+        self.dense1 = Dense(15488, 64)
         # Leaky ReLU
         self.dense2 = Dense(64, 32)
         # Leaky ReLU
@@ -180,10 +181,11 @@ class SimpleCNN:
             self.optimizer.update(*layer.give_grads())
         self.optimizer.step()
 
-    def train(self, x, y, epochs=10, batch_size=16, print_every=0.1):
+    def train(self, x, y, epochs=10, batch_size=16, print_every=0.1, x_test=None, y_test=None):
         losses = []
         accuracies = []
         for epoch in range(1, epochs + 1):
+            start = time.time()
             indices = np.arange(x.shape[0])
             np.random.shuffle(indices)
             x = x[indices]
@@ -205,12 +207,15 @@ class SimpleCNN:
                 
                 self.backward(y_batch, outp=preds)
                 self.update_params()
-                print(f"Epoch {epoch}, Batch {i//batch_size + 1}", end='\r')
+                print(f"Epoch {epoch}, Batch [{i//batch_size+1}/{x.shape[0]//batch_size}]", end='\r')
             
             avg_loss = epoch_loss / num_batches
             avg_acc = epoch_acc / num_batches
             losses.append(avg_loss)
             accuracies.append(avg_acc)
+            current_time = time.time()-start
             if epoch % max(1, int(epochs * print_every)) == 0:
-                print(f'Epoch: [{epoch}/{epochs}]> Loss: {avg_loss:.4f}, Acc: {avg_acc:.4f}')
+                if x_test is not None and y_test is not None:
+                    acc_test, loss_test = BinaryAccuracy(y_test, x_test, self) if self.last_activation == sigmoid else CategoricalAccuracy(y_test, x_test, self)
+                print(f'[Epoch: [{epoch}/{epochs}] Time: {current_time:.2f} seconds]> Loss: {avg_loss:.4f}, Acc: {avg_acc:.4f}, Loss Test: {loss_test:.4f}, Acc Test: {acc_test:.4f}')
         return losses, accuracies
