@@ -10,13 +10,13 @@ This project implements a machine learning model to diagnose pneumonia from X-ra
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
 
-Pneumonia is an infection that inflames the air sacs in one or both lungs. The goal of this project is to facilitate automated pneumonia diagnosis by analyzing X-ray images using NumPy-based data processing techniques.
+Pneumonia is an infection that inflames the air sacs in one or both lungs. The goal of this project is to facilitate automated pneumonia diagnosis by analyzing X-ray images using NumPy-based data processing techniques. This is a **from-scratch** model implemented purely with NumPy, intended for educational purposes only, and not for real-world use.
+
+This project is meant to demonstrate how machine learning can be implemented **without relying on external libraries**, showcasing fundamental concepts using only NumPy. It is not designed for contributions or extensions.
 
 ## Features
 
@@ -30,7 +30,7 @@ Before running the project, ensure you have the following Python packages instal
 
 - NumPy  
 - Matplotlib  
-- cv2  
+- [Other required packages]  
 
 ## Installation
 
@@ -85,36 +85,7 @@ Before running the project, ensure you have the following Python packages instal
 - `train.ipynb`: Notebook for training the model.  
 - `test.ipynb`: Notebook for evaluating the trained model.  
 
-## Contributing
-
-Contributions are welcome! To contribute, follow these steps:
-
-1. Fork the repository.  
-2. Create a new branch for your feature or improvement:
-
-   ```bash
-   git checkout -b new-feature
-   ```
-
-3. Make your changes and commit them:
-
-   ```bash
-   git commit -m "Add a new feature"
-   ```
-
-4. Push your changes to your fork:
-
-   ```bash
-   git push origin new-feature
-   ```
-
-5. Open a pull request on this repository.  
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.  
-
 ## Contact
 
-For any questions or suggestions, please contact [Your Name] at [your email] or visit [your GitHub profile](https://github.com/OT1devl).
+For any questions or suggestions, please contact OT1devl at [otidevv1@gmail.com](mailto:otidevv1@gmail.com) or visit [your GitHub profile](https://github.com/OT1devl).
 
