@@ -92,7 +92,7 @@ Before running the project, ensure you have the following Python packages instal
 
 ## 📧 Contact
 
-For any questions or suggestions, please contact OT1devl at:
+For any questions or suggestions, please contact me at:  
 📧 [otidevv1@gmail.com](mailto:otidevv1@gmail.com)  
 🌐 Visit my GitHub [profile](https://github.com/OT1devl).
 
