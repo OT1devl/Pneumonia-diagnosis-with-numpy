@@ -90,7 +90,7 @@ Before running the project, ensure you have the following Python packages instal
 - `train.ipynb`: Notebook for training the model.  
 - `test.ipynb`: Notebook for evaluating the trained model.  
 
-## 📧 Contact
+## 📱 Contact
 
 For any questions or suggestions, please contact me at:  
 📧 [otidevv1@gmail.com](mailto:otidevv1@gmail.com)  
