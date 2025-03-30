@@ -29,8 +29,8 @@ This project is meant to demonstrate how machine learning can be implemented **w
 Before running the project, ensure you have the following Python packages installed:
 
 - NumPy  
-- Matplotlib  
-- [Other required packages]  
+- Matplotlib
+- cv2
 
 ## Installation
 
