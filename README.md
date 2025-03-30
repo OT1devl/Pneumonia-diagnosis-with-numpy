@@ -1,10 +1,5 @@
-<h1 align="center">Pneumonia diagnosis</h1>
-<h3 align="center">Implementation with NumPy</h3>
+# Pneumonia Diagnosis with NumPy
 
-<p align="center">
-  <img src="https://img.shields.io/github/languages/top/OT1devl/Pneumonia-diagnosis-with-numpy?style=flat" alt="Languages" />
-  <img src="https://img.shields.io/github/last-commit/OT1devl/Pneumonia-diagnosis-with-numpy?style=flat" alt="Last Commit" />
-</p>
 ## 🚀 **Project Overview**
 This project implements a machine learning model to diagnose pneumonia from X-ray images, using NumPy as the primary data processing library.
 
