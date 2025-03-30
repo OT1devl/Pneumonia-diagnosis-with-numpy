@@ -1,9 +1,9 @@
 # Pneumonia Diagnosis with NumPy
 
+## 🚀 **Project Overview**
 This project implements a machine learning model to diagnose pneumonia from X-ray images, using NumPy as the primary data processing library.
 
-## Table of Contents
-
+## 📚 **Table of Contents**
 - [Introduction](#introduction)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
@@ -12,27 +12,32 @@ This project implements a machine learning model to diagnose pneumonia from X-ra
 - [Project Structure](#project-structure)
 - [Contact](#contact)
 
-## Introduction
+---
 
-Pneumonia is an infection that inflames the air sacs in one or both lungs. The goal of this project is to facilitate automated pneumonia diagnosis by analyzing X-ray images using NumPy-based data processing techniques. This is a **from-scratch** model implemented purely with NumPy, intended for educational purposes only, and not for real-world use.
+## 🧑‍⚕️ **Introduction**
+Pneumonia is an infection that inflames the air sacs in one or both lungs. The goal of this project is to facilitate automated pneumonia diagnosis by analyzing X-ray images using **NumPy-based** data processing techniques. This is a **from-scratch** model implemented purely with NumPy, intended for **educational purposes** only, and **not** for real-world use.
 
-This project is meant to demonstrate how machine learning can be implemented **without relying on external libraries**, showcasing fundamental concepts using only NumPy. It is not designed for contributions or extensions.
+This project is meant to demonstrate how machine learning can be implemented **without relying on external libraries**, showcasing fundamental concepts using only NumPy. It is **not designed for contributions or extensions**.
 
-## Features
+---
 
+## ⚡ **Features**
 - **Image Processing:** Uses NumPy for handling and analyzing X-ray images.  
 - **Custom Models:** Implements machine learning models without relying on high-level frameworks.  
-- **Performance Evaluation:** Includes metrics to assess model accuracy and efficiency.  
+- **Performance Evaluation:** Includes metrics to assess model accuracy and efficiency.
 
-## Prerequisites
+---
 
+## 🛠️ **Prerequisites**
 Before running the project, ensure you have the following Python packages installed:
 
-- NumPy  
-- Matplotlib
-- cv2
+- `NumPy`  
+- `Matplotlib`
+- `cv2` (OpenCV)
 
-## Installation
+---
+
+## 📥 **Installation**
 
 1. Clone this repository to your local machine:
 
@@ -59,7 +64,7 @@ Before running the project, ensure you have the following Python packages instal
    pip install -r requirements.txt
    ```
 
-## Usage
+## ⚙️ Usage
 
 1. Ensure that X-ray images are located in the appropriate directory within the `datasets` folder.  
 
@@ -75,7 +80,7 @@ Before running the project, ensure you have the following Python packages instal
    jupyter notebook test.ipynb
    ```
 
-## Project Structure
+## 🗂️ Project Structure
 
 - `datasets/`: Contains X-ray images used for training and testing.  
 - `functions.py`: Defines helper functions for data processing and model operations.  
@@ -85,7 +90,9 @@ Before running the project, ensure you have the following Python packages instal
 - `train.ipynb`: Notebook for training the model.  
 - `test.ipynb`: Notebook for evaluating the trained model.  
 
-## Contact
+## 📧 Contact
 
-For any questions or suggestions, please contact OT1devl at [otidevv1@gmail.com](mailto:otidevv1@gmail.com) or visit [your GitHub profile](https://github.com/OT1devl).
+For any questions or suggestions, please contact OT1devl at:
+📧 [otidevv1@gmail.com](mailto:otidevv1@gmail.com)
+🌐 Visit my GitHub [profile](https://github.com/OT1devl).
 
